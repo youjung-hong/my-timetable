@@ -1,0 +1,52 @@
+{
+  "name": "day5m",
+  "version": "0.0.1",
+  "description": "5minute heatmap for a day",
+  "private": true,
+  "repository": "https://github.com/youjung-hong/nemo-heatmap.git",
+  "main": "index.js",
+  "keywords": [
+    "calendarmap",
+    "heatmap"
+  ],
+  "scripts": {
+    "test": "jest",
+    "start": "webpack-dev-server",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "eslint src/*.js --fix-dry-run"
+    ]
+  },
+  "author": "youjung-hong",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
