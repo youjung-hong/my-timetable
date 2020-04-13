@@ -1,9 +1,8 @@
-export class Item {
-  startAt = null
-  endAt = null
-  duration = 0
+let nextId = 1
 
+export class Item {
   constructor(startAt, endAt) {
+    this.id = nextId
     this.startAt = startAt ? new Date(startAt) : new Date()
     this.endAt = endAt ? new Date(endAt) : this.startAt
 
@@ -12,5 +11,7 @@ export class Item {
     }
 
     this.duration = this.endAt - this.startAt
+
+    nextId += 1
   }
 }
