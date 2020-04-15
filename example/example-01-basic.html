@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+  <link href="../dist/main.css">
+</head>
+<body>
+  <div id="item-list"></div>
+  <script src="../dist/main.js"></script>
+  <script>
+    const items = new nemo.ItemList()
+    setTimeout(() => {
+      items.add(new nemo.Item())
+      items.add(new nemo.Item())
+      items.add(new nemo.Item())
+
+      document.getElementById('item-list').innerText = JSON.stringify(items)
+    })
+  </script>
+</body>
+</html>
