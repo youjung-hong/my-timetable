@@ -49,3 +49,11 @@ test('아이템을 아이디로 삭제할 수 있다.', () => {
   list.remove(item2.id)
   expect(list.items).toEqual([item1, item3])
 })
+
+test('아이템을 수정할 수 있다.', () => {
+  const list = new ItemList([item1, item2, item3])
+  item1.startAt = '2020-04-01 00:00:00'
+  expect(list.items[0]).not.toEqual(item1)
+  list.update(item1)
+  expect(list.items[0]).toEqual(item1)
+})
