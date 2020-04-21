@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "test": "jest --watch",
+    "storybook": "start-storybook",
     "start": "webpack-dev-server",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"
@@ -32,6 +33,7 @@
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
+    "@storybook/html": "^5.3.18",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
     "eslint": "^6.8.0",
