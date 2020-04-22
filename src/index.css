@@ -1,3 +1,16 @@
-body {
-  line-height: 2;
+.row {
+  display: inline-block;
+  font-size: 0;
+  width: 100%;
+  vertical-align: middle;
+  position: relative;
+}
+.cell {
+  display: inline-block;
+  border: 1px solid black;
+  width: 15%;
+  padding-top: 15%;
+}
+.log {
+  position: absolute;
 }

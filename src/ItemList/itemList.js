@@ -1,4 +1,4 @@
-import { Item } from './item'
+import { Item } from '../Item/item'
 
 export class ItemList {
   constructor(items) {

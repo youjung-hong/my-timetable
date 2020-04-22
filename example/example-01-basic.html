@@ -2,61 +2,70 @@
 <head>
   <link href="../dist/main.css">
   <style>
+    #heatmap {
+      width: 20%;
+    }
     .row {
       display: inline-block;
       font-size: 0;
+      width: 100%;
+      vertical-align: middle;
+      position: relative;
     }
     .cell {
       display: inline-block;
-      width: 20px;
-      height: 20px;
+      width: 15%;
+      padding-top: 15%;
       border: 1px solid black;
+    }
+    .log {
+      position: absolute;
+      left: 20px;
+      width: 45%;
+      background-color: orangered;
     }
   </style>
 </head>
 <body>
   <div id="item-list"></div>
-
-  <div class="row">
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-  <div>
-  <div class="row">
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-  <div>
-  <div class="row">
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-  <div>
-  <div class="row">
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-  <div>
-  <div class="row">
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-    <span class="cell"></span>
-  <div>
+  <div id="heatmap">
+    <div class="row">
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+    <div>
+    <div class="row">
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell log"></span>
+    <div>
+    <div class="row">
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell log"></span>
+    <div>
+    <div class="row">
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell"></span>
+      <span class="cell log"></span>
+    <div>
+  </div>
+  
   
   <script src="../dist/main.js"></script>
   <script>

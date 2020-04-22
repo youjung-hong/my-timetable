@@ -1,5 +1,5 @@
 const { ItemList } = require('./itemList')
-const { Item } = require('./item')
+const { Item } = require('../Item/item')
 
 let item1, item2, item3
 beforeAll(() => {
