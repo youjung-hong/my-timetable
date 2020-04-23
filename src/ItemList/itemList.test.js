@@ -57,3 +57,11 @@ test('아이템을 수정할 수 있다.', () => {
   list.update(item1)
   expect(list.items[0]).toEqual(item1)
 })
+
+test('초기화할 때 넘겨주는 아이템 목록 중 Item 타입인 것만 아이템 목록으로 지정된다.', () => {
+  const list = new ItemList([null, item1, 1, item2, 'string', item3])
+  expect(list.items.length).toEqual(3)
+  expect(list.items[0]).toEqual(item1)
+  expect(list.items[1]).toEqual(item2)
+  expect(list.items[2]).toEqual(item3)
+})

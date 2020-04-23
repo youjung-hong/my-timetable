@@ -2,7 +2,11 @@ import { Item } from '../Item/item'
 
 export class ItemList {
   constructor(items) {
-    this.items = items ? items.map((item) => Object.assign({}, item)) : []
+    this.items = []
+
+    if (items) {
+      items.forEach((item) => this.add(item))
+    }
   }
 
   add(item) {
