@@ -1,6 +1,6 @@
 let nextId = 1
 
-export class Item {
+export class TaskItem {
   id = 0
   _startAt = null
   _endAt = null

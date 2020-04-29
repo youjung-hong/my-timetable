@@ -1,6 +1,6 @@
-import { Item } from '../Item/item'
+import { TaskItem } from '../TaskItem/TaskItem'
 
-export class ItemList {
+export class TaskItemList {
   constructor(items) {
     this.items = []
 
@@ -10,13 +10,13 @@ export class ItemList {
   }
 
   add(item) {
-    if (item instanceof Item) {
+    if (item instanceof TaskItem) {
       this.items.push(Object.assign({}, item))
     }
   }
 
   remove(removeIdx) {
-    const id = removeIdx instanceof Item ? removeIdx.id : removeIdx
+    const id = removeIdx instanceof TaskItem ? removeIdx.id : removeIdx
     this.items = this.items.filter((item) => item.id !== id)
   }
 

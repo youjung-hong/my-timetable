@@ -1,5 +1,5 @@
 import UI_TEMPLATE from './template/HeatmapTemplate'
-import { ItemList } from '../ItemList/itemList'
+import { TaskItemList } from '../TaskItemList/TaskItemList'
 
 export class Heatmap {
   constructor(id, items) {
@@ -9,6 +9,6 @@ export class Heatmap {
       this.rootElement.innerHTML = UI_TEMPLATE
     }
 
-    this.list = new ItemList(items)
+    this.list = new TaskItemList(items)
   }
 }

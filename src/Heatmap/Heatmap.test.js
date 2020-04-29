@@ -1,5 +1,5 @@
 import { Heatmap } from './Heatmap'
-import { Item } from '../Item/item'
+import { TaskItem } from '../TaskItem/TaskItem'
 
 beforeAll(() => {
   document.body.innerHTML = '<div id="heatmap"></div>'
@@ -24,7 +24,7 @@ test('초기화하면 아이템 목록이 비어있다.', () => {
 })
 
 test('초기화할 때, 아이템 목록을 넘겨줄 수 있다.', () => {
-  const item1 = new Item('2020-04-24 00:00:00')
+  const item1 = new TaskItem('2020-04-24 00:00:00')
   const heatmap = new Heatmap('heatmap', [item1])
   expect(heatmap.list.items.length).toBe(1)
   expect(heatmap.list.items[0]).toEqual(item1)
