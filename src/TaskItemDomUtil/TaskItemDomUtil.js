@@ -13,7 +13,7 @@ export const DateUtil = {
 }
 
 const TaskItemDomUtil = {
-  calculatePosition: function calculatePosition(item) {
+  calculatePositions: function calculatePositions(item) {
     const positions = []
     const hourDiff = parseInt(
       (item.endAt - item.startAt) /
