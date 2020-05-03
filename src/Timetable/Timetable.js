@@ -1,7 +1,7 @@
-import UI_TEMPLATE from './template/HeatmapTemplate'
+import UI_TEMPLATE from './template/TimetableTemplate'
 import { TaskItemList } from '../TaskItemList/TaskItemList'
 
-export class Heatmap {
+export class Timetable {
   constructor(id, items) {
     this.rootElement = document.getElementById(id)
 

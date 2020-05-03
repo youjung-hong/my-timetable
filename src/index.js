@@ -1,6 +1,6 @@
 import { TaskItem } from './TaskItem/TaskItem'
 import { TaskItemList } from './TaskItemList/TaskItemList'
-import { Heatmap } from './Heatmap/Heatmap'
+import { Timetable } from './Timetable/Timetable'
 import './index.css'
 
-export { TaskItem, TaskItemList, Heatmap }
+export { TaskItem, TaskItemList, Timetable }

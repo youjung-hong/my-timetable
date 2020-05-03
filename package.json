@@ -1,13 +1,13 @@
 {
-  "name": "day5m",
+  "name": "timetable",
   "version": "0.0.1",
-  "description": "5minute heatmap for a day",
+  "description": "Timetable for a day",
   "private": true,
-  "repository": "https://github.com/youjung-hong/nemo-heatmap.git",
+  "repository": "https://github.com/youjung-hong/timetable.git",
   "main": "index.js",
   "keywords": [
     "calendarmap",
-    "heatmap"
+    "timetable"
   ],
   "scripts": {
     "test": "jest --watch",
