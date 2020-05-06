@@ -1,3 +1,6 @@
+.root {
+  position: relative;
+}
 .row {
   display: inline-block;
   font-size: 0;
@@ -7,10 +10,14 @@
 }
 .cell {
   display: inline-block;
-  border: 1px solid black;
-  width: 15%;
-  padding-top: 15%;
+  border: 1px dashed black;
+  box-sizing: border-box;
+  width: calc(100% / 6);
+  padding-top: calc(100% / 6);
 }
-.log {
+.task-log {
   position: absolute;
+  background-color: yellow;
+  border: 1px solid black;
+  box-sizing: border-box;
 }

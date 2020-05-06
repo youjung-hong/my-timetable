@@ -49,8 +49,10 @@
     "mini-css-extract-plugin": "^0.9.0",
     "prettier": "^2.0.4",
     "pretty-quick": "^2.0.1",
+    "style-loader": "^1.2.1",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
-  }
+  },
+  "dependencies": {}
 }

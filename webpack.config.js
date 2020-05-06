@@ -23,11 +23,25 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        use: 'url-loader',
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin(), new MiniCssExtractPlugin()],
+  // plugins: [new HtmlWebpackPlugin()],
   devServer: {
     open: true,
   },

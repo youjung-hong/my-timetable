@@ -54,3 +54,12 @@ export class TaskItem {
     this.duration = this._endAt - this.startAt
   }
 }
+
+TaskItem.clone = (item) => {
+  const taskItem = new TaskItem()
+  taskItem.id = item.id
+  taskItem.startAt = item.startAt
+  taskItem.endAt = item.endAt
+
+  return taskItem
+}

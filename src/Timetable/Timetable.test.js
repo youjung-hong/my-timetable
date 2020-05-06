@@ -27,5 +27,7 @@ test('초기화할 때, 아이템 목록을 넘겨줄 수 있다.', () => {
   const item1 = new TaskItem('2020-04-24 00:00:00')
   const timetable = new Timetable('timetable', [item1])
   expect(timetable.list.items.length).toBe(1)
-  expect(timetable.list.items[0]).toEqual(item1)
+  expect(timetable.list.items[0].startAt).toEqual(item1.startAt)
+  expect(timetable.list.items[0].endAt).toEqual(item1.endAt)
+  expect(timetable.list.items[0].duration).toEqual(item1.duration)
 })

@@ -5,34 +5,30 @@ test('같은 hour 내에 수행한 TaskItem의 화면상의 위치를 계산한�
   const item1 = new TaskItem('2020-04-30T07:04:00', '2020-04-30T07:43:00')
   expect(TaskItemDomUtil.calculatePositions(item1)).toEqual([
     {
-      hour: 7,
-      minutes: [
-        4 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-        43 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-      ],
+      top: (7 / 24) * 100,
+      left: ((4 * 60000) / 3600000) * 100,
+      width: ((39 * 60000) / 3600000) * 100,
+      height: (1 / 24) * 100,
     },
   ])
 
   const item2 = new TaskItem('2020-04-30T08:05:03', '2020-04-30T08:43:00')
   expect(TaskItemDomUtil.calculatePositions(item2)).toEqual([
     {
-      hour: 8,
-      minutes: [
-        5 * DateUtil.ONE_MINUTE_TO_MILLISECONDS +
-          3 * DateUtil.ONE_SECOND_TO_MILLISECONDS,
-        43 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-      ],
+      top: (8 / 24) * 100,
+      left: ((5 * 60000 + 3 * 1000) / 3600000) * 100,
+      width: ((37 * 60000 + 57 * 1000) / 3600000) * 100,
+      height: (1 / 24) * 100,
     },
   ])
 
   const item3 = new TaskItem('2020-04-30 11:00:00', '2020-04-30 11:01:00')
   expect(TaskItemDomUtil.calculatePositions(item3)).toEqual([
     {
-      hour: 11,
-      minutes: [
-        0 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-        1 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-      ],
+      top: (11 / 24) * 100,
+      left: 0,
+      width: ((1 * 60000) / 3600000) * 100,
+      height: (1 / 24) * 100,
     },
   ])
 })
@@ -41,34 +37,54 @@ test('다른 hour 내에 수행한 TaskItem의 화면상의 위치를 계산한�
   const item1 = new TaskItem('2020-04-30T07:04:00', '2020-04-30T08:43:00')
   expect(TaskItemDomUtil.calculatePositions(item1)).toEqual([
     {
-      hour: 7,
-      minutes: [
-        4 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-        60 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-      ],
+      top: (7 / 24) * 100,
+      left: ((4 * 60000) / 3600000) * 100,
+      width: ((56 * 60000) / 3600000) * 100,
+      height: (1 / 24) * 100,
     },
     {
-      hour: 8,
-      minutes: [0, 43 * DateUtil.ONE_MINUTE_TO_MILLISECONDS],
+      top: (8 / 24) * 100,
+      left: 0,
+      width: ((43 * 60000) / 3600000) * 100,
+      height: (1 / 24) * 100,
     },
   ])
 
   const item2 = new TaskItem('2020-04-30T07:04:00', '2020-04-30T09:43:00')
   expect(TaskItemDomUtil.calculatePositions(item2)).toEqual([
     {
-      hour: 7,
-      minutes: [
-        4 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-        60 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-      ],
+      top: (7 / 24) * 100,
+      left: ((4 * 60000) / 3600000) * 100,
+      width: ((56 * 60000) / 3600000) * 100,
+      height: (1 / 24) * 100,
     },
     {
-      hour: 8,
-      minutes: [0, 60 * DateUtil.ONE_MINUTE_TO_MILLISECONDS],
+      top: (8 / 24) * 100,
+      left: 0,
+      width: 100,
+      height: (1 / 24) * 100,
     },
     {
-      hour: 9,
-      minutes: [0, 43 * DateUtil.ONE_MINUTE_TO_MILLISECONDS],
+      top: (9 / 24) * 100,
+      left: 0,
+      width: ((43 * 60000) / 3600000) * 100,
+      height: (1 / 24) * 100,
+    },
+  ])
+
+  const item3 = new TaskItem('2020-05-07T04:50:00', '2020-05-07T05:05:00')
+  expect(TaskItemDomUtil.calculatePositions(item3)).toEqual([
+    {
+      top: (4 / 24) * 100,
+      left: ((50 * 60000) / 3600000) * 100,
+      width: ((10 * 60000) / 3600000) * 100,
+      height: (1 / 24) * 100,
+    },
+    {
+      top: (5 / 24) * 100,
+      left: 0,
+      width: ((5 * 60000) / 3600000) * 100,
+      height: (1 / 24) * 100,
     },
   ])
 })
@@ -77,35 +93,44 @@ test('엣지에서 수행한 TaskItem의 화면상의 위치를 계산한다.', 
   const item1 = new TaskItem('2020-04-30T07:00:00', '2020-04-30T11:00:00')
   expect(TaskItemDomUtil.calculatePositions(item1)).toEqual([
     {
-      hour: 7,
-      minutes: [0, 60 * DateUtil.ONE_MINUTE_TO_MILLISECONDS],
+      top: (7 / 24) * 100,
+      left: 0,
+      width: 100,
+      height: (1 / 24) * 100,
     },
     {
-      hour: 8,
-      minutes: [0, 60 * DateUtil.ONE_MINUTE_TO_MILLISECONDS],
+      top: (8 / 24) * 100,
+      left: 0,
+      width: 100,
+      height: (1 / 24) * 100,
     },
     {
-      hour: 9,
-      minutes: [0, 60 * DateUtil.ONE_MINUTE_TO_MILLISECONDS],
+      top: (9 / 24) * 100,
+      left: 0,
+      width: 100,
+      height: (1 / 24) * 100,
     },
     {
-      hour: 10,
-      minutes: [0, 60 * DateUtil.ONE_MINUTE_TO_MILLISECONDS],
+      top: (10 / 24) * 100,
+      left: 0,
+      width: 100,
+      height: (1 / 24) * 100,
     },
   ])
 
   const item2 = new TaskItem('2020-04-30T07:04:00', '2020-04-30T09:00:00')
   expect(TaskItemDomUtil.calculatePositions(item2)).toEqual([
     {
-      hour: 7,
-      minutes: [
-        4 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-        60 * DateUtil.ONE_MINUTE_TO_MILLISECONDS,
-      ],
+      top: (7 / 24) * 100,
+      left: ((4 * 60000) / 3600000) * 100,
+      width: ((56 * 60000) / 3600000) * 100,
+      height: (1 / 24) * 100,
     },
     {
-      hour: 8,
-      minutes: [0, 60 * DateUtil.ONE_MINUTE_TO_MILLISECONDS],
+      top: (8 / 24) * 100,
+      left: 0,
+      width: 100,
+      height: (1 / 24) * 100,
     },
   ])
 })

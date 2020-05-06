@@ -11,19 +11,19 @@ export class TaskItemList {
 
   add(item) {
     if (item instanceof TaskItem) {
-      this.items.push(Object.assign({}, item))
+      this.items.push(TaskItem.clone(item))
     }
   }
 
-  remove(removeIdx) {
-    const id = removeIdx instanceof TaskItem ? removeIdx.id : removeIdx
+  remove(removeId) {
+    const id = removeId instanceof TaskItem ? removeId.id : removeId
     this.items = this.items.filter((item) => item.id !== id)
   }
 
   update(updateItem) {
     this.items = this.items.map((item) => {
       if (item.id === updateItem.id) {
-        return Object.assign({}, updateItem)
+        return TaskItem.clone(updateItem)
       }
 
       return item
