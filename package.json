@@ -1,12 +1,11 @@
 {
-  "name": "timetable",
+  "name": "one-timetable",
   "version": "1.0.0",
   "description": "Timetable for a day",
   "private": false,
-  "repository": "https://github.com/youjung-hong/timetable.git",
+  "repository": "https://github.com/youjung-hong/one-timetable.git",
   "main": "index.js",
   "keywords": [
-    "calendarmap",
     "timetable"
   ],
   "scripts": {
