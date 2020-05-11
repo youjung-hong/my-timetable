@@ -2,7 +2,7 @@
   "name": "timetable",
   "version": "0.0.1",
   "description": "Timetable for a day",
-  "private": true,
+  "private": false,
   "repository": "https://github.com/youjung-hong/timetable.git",
   "main": "index.js",
   "keywords": [
