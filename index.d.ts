@@ -1,4 +1,5 @@
 declare class TaskItem {
+  constructor(startAt?: Date, endAt?: Date)
   id: number
   private _startAt: Date
   private _endAt: Date
@@ -10,6 +11,7 @@ declare class TaskItem {
 }
 
 declare class TaskItemList {
+  constructor(items?: TaskItem[])
   items: TaskItem[]
   add(item: TaskItem): void
   remove(removeId: number): void
@@ -17,6 +19,7 @@ declare class TaskItemList {
 }
 
 declare class Timetable {
+  constructor(id: string, items?: TaskItem[])
   rootElement: HTMLElement
   list: TaskItemList
   insert(item: TaskItem): void
