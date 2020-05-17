@@ -4,3 +4,5 @@ import { Timetable } from './Timetable/Timetable'
 import './index.css'
 
 export { TaskItem, TaskItemList, Timetable }
+
+export default Timetable

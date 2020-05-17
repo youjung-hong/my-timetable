@@ -1,7 +1,6 @@
 import UI_TEMPLATE from './template/TimetableTemplate'
 import { TaskItemList } from '../TaskItemList/TaskItemList'
 import TaskItemDomUtil from '../TaskItemDomUtil/TaskItemDomUtil'
-import { TaskItem } from '../TaskItem/TaskItem'
 
 export class Timetable {
   constructor(id, items) {

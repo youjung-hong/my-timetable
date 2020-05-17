@@ -1,11 +1,6 @@
 let nextId = 1
 
 export class TaskItem {
-  id = 0
-  _startAt = null
-  _endAt = null
-  duration = 0
-
   constructor(startAt, endAt) {
     this.id = nextId
     this._startAt = startAt ? new Date(startAt) : new Date()
