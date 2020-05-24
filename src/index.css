@@ -1,3 +1,17 @@
+/**
+ * CSS color pallete
+ * @url - https://coolors.co/ffadad-ffd6a5-fdffb6-caffbf-9bf6ff-a0c4ff-bdb2ff-ffc6ff-fffffc
+ * $red: #ffadadff;
+ * $orange: #ffd6a5ff;
+ * $yellow: #fdffb6ff;
+ * $green: #caffbfff;
+ * $blue: #9bf6ffff;
+ * $navy: #a0c4ffff;
+ * $purple: #bdb2ffff;
+ * $pink: #ffc6ffff;
+ * $white: #fffffcff;
+ */
+
 .root {
   position: relative;
 }
@@ -17,7 +31,7 @@
 }
 .task-log {
   position: absolute;
-  background-color: yellow;
+  background-color: #fdffb6ff;
   border: 1px solid black;
   box-sizing: border-box;
 }
