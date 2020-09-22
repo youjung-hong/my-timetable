@@ -48,12 +48,12 @@ const TaskItemDomUtil = {
     const positions = []
     const hourDiff = item.endAt.getHours() - item.startAt.getHours()
     const currentStartTime = DateUtil.getStartTimeOfHour(item.startAt)
+    const currentEndTime = new Date(
+      +new Date(currentStartTime) + DateUtil.ONE_HOUR_TO_MILLISECONDS
+    )
     for (let i = 0; i <= hourDiff; i += 1) {
       const currentStartAt = i === 0 ? item.startAt : currentStartTime
-      const currentEndAt =
-        i === hourDiff
-          ? item.endAt
-          : new Date(new Date(currentStartTime).setMinutes(60))
+      const currentEndAt = i === hourDiff ? item.endAt : currentEndTime
       const currentHour = currentStartTime.getHours()
       const position = {
         top: (currentHour / DateUtil.ONE_DAY_TO_HOURS) * 100,
@@ -69,10 +69,20 @@ const TaskItemDomUtil = {
       }
 
       if (position.width) {
-        positions.push(position)
+        positions.push({
+          top: position.top + '%',
+          left: position.left + '%',
+          width: position.width + '%',
+          height: position.height + '%',
+          meta: {
+            startOfHour: currentStartAt === currentStartTime,
+            endOfHour: currentEndAt === currentEndTime,
+          },
+        })
       }
 
       currentStartTime.setHours(currentHour + 1)
+      currentEndTime.setHours(currentHour + 2)
     }
 
     return positions

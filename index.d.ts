@@ -7,7 +7,7 @@ declare class TaskItem {
   endAt: Date
   duration: number
   calculateDuration(): void
-  static clone(item: { id: number; startAt: Date; endAt: Date }): TaskItem
+  static clone(item: { id: number; startAt: Date|null; endAt: Date|null }): TaskItem
 }
 
 declare class TaskItemList {

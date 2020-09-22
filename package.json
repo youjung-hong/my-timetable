@@ -13,7 +13,8 @@
     "storybook": "start-storybook",
     "start": "webpack-dev-server",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "doc": "jsdoc"
   },
   "husky": {
     "hooks": {

@@ -84,13 +84,25 @@ export class Timetable {
       const element = document.createElement('div')
       element.dataset.itemId = item.id
       element.className = 'task-log'
-      element.style.width = position.width + '%'
-      element.style.height = position.height + '%'
-      element.style.top = position.top + '%'
-      element.style.left = position.left + '%'
+      element.style.width = position.width
+      element.style.height = position.height
+      element.style.top = position.top
+      element.style.left = position.left
+
+      if (position.meta.startOfHour) {
+        element.style.borderTopLeftRadius = '0 0'
+        element.style.borderBottomLeftRadius = '0 0'
+      }
+
+      if (position.meta.endOfHour) {
+        element.style.borderTopRightRadius = '0 0'
+        element.style.borderBottomRightRadius = '0 0'
+      }
 
       this.rootElement.appendChild(element)
     })
+
+    positions.filter((position) => {})
   }
 
   /**
