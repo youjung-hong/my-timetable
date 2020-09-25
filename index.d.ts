@@ -1,13 +1,19 @@
 declare class TaskItem {
-  constructor(startAt?: Date, endAt?: Date)
+  constructor(startAt?: Date, endAt?: Date, meta?: any)
   id: number
   private _startAt: Date
   private _endAt: Date
   startAt: Date
   endAt: Date
   duration: number
+  meta: any
   calculateDuration(): void
-  static clone(item: { id: number; startAt: Date|null; endAt: Date|null }): TaskItem
+  static clone(item: {
+    id: number
+    startAt: Date | null
+    endAt: Date | null
+    meta: any
+  }): TaskItem
 }
 
 declare class TaskItemList {
@@ -22,6 +28,8 @@ declare class Timetable {
   constructor(id: string, items?: TaskItem[])
   rootElement: HTMLElement
   list: TaskItemList
+  onClickTimeLogBar: (data: any) => void
+  eventHanderMap: Map<HTMLDivElement, function>
   insert(item: TaskItem): void
   update(item: TaskItem): void
   delete(item: TaskItem): void

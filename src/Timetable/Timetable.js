@@ -8,10 +8,13 @@ import { TaskItem } from '../TaskItem/TaskItem'
  * @constructor
  * @param {string} id - root element id
  * @param {TaskItem[]} items - task items
+ * @param {meta: any => void} onClickTimeLogBar - call when click time log bar
  * @example
  * const timetable = new Timetable('root');
  * @example
  * const timetable = new Timetable('root', [new TaskItem()])
+ * @example
+ * const timetable = new Timetable('root', [new TaskItem()], { id: 1 })
  */
 export class Timetable {
   constructor(id, items, onClickTimeLogBar) {
