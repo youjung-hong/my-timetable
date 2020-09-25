@@ -1,7 +1,7 @@
 import { Timetable } from './Timetable'
 import { TaskItem } from '../TaskItem/TaskItem'
 
-beforeAll(() => {
+beforeEach(() => {
   document.body.innerHTML = '<div id="timetable"></div>'
 })
 

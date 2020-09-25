@@ -22,13 +22,13 @@
   width: 100%;
   vertical-align: middle;
   position: relative;
-}
-.row:last-child {
+  border-top: 0.5px dashed black;
   border-bottom: 1px dashed black;
+  box-sizing: border-box;
 }
+
 .cell {
   display: inline-block;
-  border-top: 1px dashed black;
   border-left: 1px dashed black;
   box-sizing: border-box;
   width: calc(100% / 6);

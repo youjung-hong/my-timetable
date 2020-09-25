@@ -5,6 +5,7 @@ let nextId = 1
  * @constructor
  * @param {Date} startAt - datetime when user started a task
  * @param {Date} endAt - datetime when user ended a task
+ * @param {any} meta - metadata
  * @example
  * // startAt: now, endAt: now
  * const task = new TaskItem();
@@ -14,9 +15,13 @@ let nextId = 1
  * @example
  * // startAt: new Date('2020-04-13T00:00:00'), endAt: new Date('2020-04-15T00:00:00')
  * const task = new TaskItem('2020-04-13T00:00:00', '2020-04-15T00:00:00');
+ * @example
+ * // startAt: new Date('2020-04-13T00:00:00'), endAt: new Date('2020-04-15T00:00:00')
+ * // meta: { id: 1 }
+ * const task = new TaskItem('2020-04-13T00:00:00', '2020-04-15T00:00:00', { id: 1 });
  */
 export class TaskItem {
-  constructor(startAt, endAt) {
+  constructor(startAt, endAt, meta) {
     this.id = nextId
     this._startAt = startAt ? new Date(startAt) : new Date()
     this._endAt = endAt ? new Date(endAt) : this.startAt
@@ -24,6 +29,8 @@ export class TaskItem {
     if (this._startAt > this._endAt) {
       this._endAt = this._startAt
     }
+
+    this.meta = meta
 
     this.calculateDuration()
 
@@ -65,7 +72,7 @@ export class TaskItem {
    * @private
    */
   calculateDuration() {
-    this.duration = this._endAt - this.startAt
+    this.duration = this.endAt - this.startAt
   }
 }
 
@@ -83,6 +90,7 @@ TaskItem.clone = (item) => {
   taskItem.id = item.id
   taskItem.startAt = item.startAt
   taskItem.endAt = item.endAt
+  taskItem.meta = item.meta
 
   return taskItem
 }

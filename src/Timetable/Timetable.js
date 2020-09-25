@@ -14,7 +14,7 @@ import { TaskItem } from '../TaskItem/TaskItem'
  * const timetable = new Timetable('root', [new TaskItem()])
  */
 export class Timetable {
-  constructor(id, items) {
+  constructor(id, items, onClickTimeLogBar) {
     this.rootElement = document.getElementById(id)
 
     if (this.rootElement) {
@@ -22,7 +22,11 @@ export class Timetable {
       this.rootElement.innerHTML = UI_TEMPLATE
     }
 
+    this.onClickTimeLogBar = onClickTimeLogBar || (() => {})
+
     this.list = new TaskItemList(items)
+
+    this.eventHandlerMap = {}
 
     this.drawItems(this.list.items)
   }
@@ -64,6 +68,8 @@ export class Timetable {
     Array.from(
       this.rootElement.querySelectorAll(`div[data-item-id='${itemId}']`)
     ).forEach((element) => {
+      element.removeEventListener(this.eventHandlerMap[element])
+      this.eventHandlerMap[element] = null
       element.parentElement.removeChild(element)
     })
   }
@@ -99,10 +105,16 @@ export class Timetable {
         element.style.borderBottomRightRadius = '0 0'
       }
 
-      this.rootElement.appendChild(element)
-    })
+      if (this.eventHandlerMap[element]) {
+        element.removeEventListener('click', this.eventHandlerMap[element])
+      }
+      this.eventHandlerMap[element] = ((e) => {
+        this.onClickTimeLogBar(position.meta.data)
+      }).bind(this)
+      element.addEventListener('click', this.eventHandlerMap[element])
 
-    positions.filter((position) => {})
+      this.rootElement.appendChild(element)
+    }, this)
   }
 
   /**

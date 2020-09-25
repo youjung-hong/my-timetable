@@ -43,6 +43,16 @@ function createTimetableThenUpdateItem(initial, updatedStartAt) {
   return rootElement
 }
 
+function createTimetableThenSetOnClickTimeLogBar(taskItems, onClickTimeLogBar) {
+  const rootElement = createRootElement()
+
+  setTimeout(() => {
+    new Timetable('timetable', taskItems, onClickTimeLogBar)
+  })
+
+  return rootElement
+}
+
 export default {
   title: 'Timetable',
   component: Timetable,
@@ -84,4 +94,15 @@ export const OneTaskUpdated = () =>
   )
 OneTaskUpdated.story = {
   name: '[U] 04:50:00 - 05:05:00\n -> 04:05:00 - 05:05:00',
+}
+
+export const OneTaskClicked = () =>
+  createTimetableThenSetOnClickTimeLogBar(
+    [new TaskItem('2020-05-05T04:50:00', '2020-05-05T05:05:00', { id: 1 })],
+    (data) => {
+      alert('데이터: ' + JSON.stringify(data))
+    }
+  )
+OneTaskClicked.story = {
+  name: '[R] 04:50:00 - 05:05:00 클릭',
 }

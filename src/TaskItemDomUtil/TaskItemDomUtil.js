@@ -56,29 +56,27 @@ const TaskItemDomUtil = {
       const currentEndAt = i === hourDiff ? item.endAt : currentEndTime
       const currentHour = currentStartTime.getHours()
       const position = {
-        top: (currentHour / DateUtil.ONE_DAY_TO_HOURS) * 100,
+        top: (currentHour / DateUtil.ONE_DAY_TO_HOURS) * 100 + '%',
         left:
           ((currentStartAt - currentStartTime) /
             DateUtil.ONE_HOUR_TO_MILLISECONDS) *
-          100,
+            100 +
+          '%',
         width:
           ((currentEndAt - currentStartAt) /
             DateUtil.ONE_HOUR_TO_MILLISECONDS) *
-          100,
-        height: (1 / DateUtil.ONE_DAY_TO_HOURS) * 100,
+            100 +
+          '%',
+        height: (1 / DateUtil.ONE_DAY_TO_HOURS) * 100 + '%',
+        meta: {
+          data: item.meta,
+          startOfHour: currentStartAt.getTime() === currentStartTime.getTime(),
+          endOfHour: currentEndAt.getTime() === currentEndTime.getTime(),
+        },
       }
 
-      if (position.width) {
-        positions.push({
-          top: position.top + '%',
-          left: position.left + '%',
-          width: position.width + '%',
-          height: position.height + '%',
-          meta: {
-            startOfHour: currentStartAt === currentStartTime,
-            endOfHour: currentEndAt === currentEndTime,
-          },
-        })
+      if (position.width !== '0%') {
+        positions.push(position)
       }
 
       currentStartTime.setHours(currentHour + 1)
