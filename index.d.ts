@@ -38,7 +38,7 @@ declare class Timetable {
   drawItems(items: TaskItem[]): void
 }
 
-declare module 'one-timetable' {
+declare module 'my-timetable' {
   export const Timetable
   export default Timetable
 }
