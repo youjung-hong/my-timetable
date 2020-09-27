@@ -40,8 +40,8 @@
 
 .task-log {
   position: absolute;
-  background-color: #fdffb6ff;
-  border: 1px solid black;
+  background-color: #bac8ff;
+  border: 1px solid #364fc7;
   box-sizing: border-box;
   border-radius: 5px;
 }

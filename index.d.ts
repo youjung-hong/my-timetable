@@ -25,11 +25,15 @@ declare class TaskItemList {
 }
 
 declare class Timetable {
-  constructor(id: string, items?: TaskItem[])
+  constructor(
+    id: string,
+    items?: TaskItem[],
+    onClickTimeLogBar?: (data?: any) => void
+  )
   rootElement: HTMLElement
   list: TaskItemList
   onClickTimeLogBar: (data: any) => void
-  eventHanderMap: Map<HTMLDivElement, function>
+  eventHanderMap: Map<HTMLDivElement, Function>
   insert(item: TaskItem): void
   update(item: TaskItem): void
   delete(item: TaskItem): void

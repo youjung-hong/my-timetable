@@ -71,7 +71,7 @@ export class Timetable {
     Array.from(
       this.rootElement.querySelectorAll(`div[data-item-id='${itemId}']`)
     ).forEach((element) => {
-      element.removeEventListener(this.eventHandlerMap[element])
+      element.removeEventListener('click', this.eventHandlerMap[element])
       this.eventHandlerMap[element] = null
       element.parentElement.removeChild(element)
     })
