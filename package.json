@@ -14,7 +14,8 @@
     "start": "webpack-dev-server",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "doc": "jsdoc"
+    "doc": "jsdoc",
+    "tsc:pretty": "tsc --pretty ./src/*.ts ./src/**/*.ts --target es5"
   },
   "husky": {
     "hooks": {
@@ -34,6 +35,8 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
     "@storybook/html": "^5.3.18",
+    "@types/jest": "^27.4.1",
+    "@types/mockdate": "^3.0.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
     "docdash": "^1.2.0",
@@ -45,13 +48,17 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.2.0",
     "husky": "^4.2.5",
-    "jest": "^25.3.0",
+    "jest": "^27.5.1",
     "jsdoc": "^3.6.4",
     "lint-staged": "^10.1.3",
     "mini-css-extract-plugin": "^0.9.0",
+    "mockdate": "^3.0.5",
     "prettier": "^2.0.4",
     "pretty-quick": "^2.0.1",
     "style-loader": "^1.2.1",
+    "ts-jest": "^27.1.4",
+    "ts-loader": "^8.2.0",
+    "typescript": "^4.6.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
