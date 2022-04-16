@@ -3,17 +3,24 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
 module.exports = {
+  entry: './src/index.ts',
   output: {
     library: 'nemo',
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'ts-loader',
         },
+      },
+      {
+        test: '/\.js$/',
+        use: {
+          loader: 'ts-loader'
+        }
       },
       {
         test: /\.html$/,
@@ -41,6 +48,10 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
+  },
+  devtool: 'inline-source-map',
   // plugins: [new HtmlWebpackPlugin()],
   devServer: {
     open: true,
