@@ -1,4 +1,13 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('./OpenSans-Regular-webfont.woff') format('woff'),
+        url('./OpenSans-Regular-webfont.eot') format('eot');
+    font-weight: 600;
+    font-style: normal;
+}
+
 .hello {
     color: red;
+    font-family: 'MyFont';
     background: url('./icon.png');;
 }
