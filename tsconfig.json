@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "strict": true,
+    "sourceMap": true,
+    "module": "es6",
+    "target": "es2022",
+    "moduleResolution": "node"
+  }
+}
