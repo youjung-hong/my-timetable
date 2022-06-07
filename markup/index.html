@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Webpack App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script defer src="bundle.js"></script> -->
+  <style>
+    .planner {
+      display: flex;
+      background-color: black;
+      height: 720px;
+    }
+    .todolist {
+      width: 70%;
+      height: 100%;
+      background-color: red;
+    }
+    .timetable {
+      width: 100%;
+      height: 100%;
+      background-color: orange;
+      display: flex;
+    }
+    .hours.hour-header {
+      width: 15%;
+      background-color: yellow;
+      display: flex;
+      flex-direction: column;
+    }
+    .hours.hour-header .hour {
+      border: solid 1px black;
+      flex-grow: 1;
+    }
+    .contents {
+      position: relative;
+      width: 100%;
+    }
+    .contents .minutes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+    }
+    .contents .minutes .minute {
+      flex-grow: 1;
+      border-right: solid 1px green;
+    }
+    .contents .hours {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .contents .hours .hour {
+      flex-grow: 1;
+      border-bottom: #dadce0 1px solid 
+    }
+  </style>    
+</head>
+  <body>
+    <div class="planner">
+      <div class="todolist" style="width: 30%; height: 100%;">
+        <ul>
+          <li>오늘 할일1</li>
+          <li>오늘 할일2</li>
+          <li>오늘 할일3</li>
+          <li>오늘 할일4</li>
+          <li>오늘 할일5</li>
+          <li>오늘 할일6</li>
+        </ul>
+      </div>
+      <div class="timetable">
+          <div class="hours hour-header">
+              <div class="hour">0</div>
+              <div class="hour">1</div>
+              <div class="hour">2</div>
+              <div class="hour">3</div>
+              <div class="hour">4</div>
+              <div class="hour">5</div>
+              <div class="hour">6</div>
+              <div class="hour">7</div>
+              <div class="hour">8</div>
+              <div class="hour">9</div>
+              <div class="hour">10</div>
+              <div class="hour">11</div>
+              <div class="hour">12</div>
+              <div class="hour">13</div>
+              <div class="hour">14</div>
+              <div class="hour">15</div>
+              <div class="hour">16</div>
+              <div class="hour">17</div>
+              <div class="hour">18</div>
+              <div class="hour">19</div>
+              <div class="hour">20</div>
+              <div class="hour">21</div>
+              <div class="hour">22</div>
+              <div class="hour">23</div>
+          </div>
+          <div class="contents">
+            <div class="minutes">
+              <div class="minute minute-0">0</div>
+              <div class="minute minute-10">10</div>
+              <div class="minute minute-20">20</div>
+              <div class="minute minute-30">30</div>
+              <div class="minute minute-40">40</div>
+              <div class="minute minute-50">50</div>
+            </div>
+            <div class="hours">
+              <div class="hour">0</div>
+              <div class="hour">1</div>
+              <div class="hour">2</div>
+              <div class="hour">3</div>
+              <div class="hour">4</div>
+              <div class="hour">5</div>
+              <div class="hour">6</div>
+              <div class="hour">7</div>
+              <div class="hour">8</div>
+              <div class="hour">9</div>
+              <div class="hour">10</div>
+              <div class="hour">11</div>
+              <div class="hour">12</div>
+              <div class="hour">13</div>
+              <div class="hour">14</div>
+              <div class="hour">15</div>
+              <div class="hour">16</div>
+              <div class="hour">17</div>
+              <div class="hour">18</div>
+              <div class="hour">19</div>
+              <div class="hour">20</div>
+              <div class="hour">21</div>
+              <div class="hour">22</div>
+              <div class="hour">23</div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
