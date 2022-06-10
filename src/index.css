@@ -1,0 +1,56 @@
+.planner {
+  display: flex;
+  background-color: black;
+  height: 720px;
+}
+.todolist {
+  width: 70%;
+  height: 100%;
+  background-color: red;
+}
+.timetable {
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  display: flex;
+  text-align: start;
+}
+.hours.hour-header {
+  width: 15%;
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+}
+.hours.hour-header .hour {
+  border: solid 1px black;
+  flex-grow: 1;
+}
+.contents {
+  position: relative;
+  width: 100%;
+}
+.contents .minutes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+.contents .minutes .minute {
+  flex-grow: 1;
+  border-right: solid 1px green;
+}
+.contents .hours {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+.contents .hours .hour {
+  flex-grow: 1;
+  border-bottom: #dadce0 1px solid 
+}

@@ -1,10 +1,27 @@
 {
   "compilerOptions": {
+    "incremental": true,            /* Enable incremental compilation */
+    // "declaration": true,            /* Concatenate & emit output to single file.*/
+    // "declarationDir": "./types/",
+    "esModuleInterop": true,        /* Enables intero between CommonJS and ES */
+    // "skipLibCheck": true,           /* Skip type checking of declaration files. */
+    "forceConsistentCasingInFileNames": true, /* Disallow inconsistently */
     "outDir": "./dist/",
     "strict": true,
     "sourceMap": true,
-    "module": "es6",
-    "target": "es2022",
-    "moduleResolution": "node"
-  }
+    "module": "CommonJS",           /* 'none', 'commonjs', 'amd', 'system', etc */
+    "target": "ES2016",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "ES2016",
+      "DOM"
+    ]
+  },
+  // "include": [
+  //   "src"
+  // ],
+  "noUnusedLocals": true,
+  "noUnusedParameters": true
 }
