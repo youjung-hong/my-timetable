@@ -1,15 +1,18 @@
-export class Timeline {
+import { ITimeline } from "./ITimeline"
+
+export class Timeline implements ITimeline {
+    
     id: number
     color: string
     startAt: Date
     endAt: Date
     meta?: any
 
-    constructor(id: number, color: string, startAt: Date, endAt: Date, meta?: any) {
-        this.id = id;
-        this.color = color;
-        this.startAt = startAt;
-        this.endAt = endAt;
-        this.meta = meta;
+    constructor(data: ITimeline) {
+        this.id = data.id;
+        this.color = data.color;
+        this.startAt = data.startAt;
+        this.endAt = data.endAt;
+        this.meta = data.meta;
     }
 }
