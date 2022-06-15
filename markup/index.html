@@ -59,7 +59,14 @@
     }
     .contents .hours .hour {
       flex-grow: 1;
-      border-bottom: #dadce0 1px solid 
+      border-bottom: #dadce0 1px solid;
+      position: relative;
+    }
+
+    .contents .hours .hour .timeline {
+      position: absolute;
+      height: 100%;
+      top: 0;
     }
   </style>    
 </head>
@@ -112,30 +119,36 @@
               <div class="minute minute-50">50</div>
             </div>
             <div class="hours">
-              <div class="hour">0</div>
-              <div class="hour">1</div>
-              <div class="hour">2</div>
-              <div class="hour">3</div>
-              <div class="hour">4</div>
-              <div class="hour">5</div>
-              <div class="hour">6</div>
-              <div class="hour">7</div>
-              <div class="hour">8</div>
-              <div class="hour">9</div>
-              <div class="hour">10</div>
-              <div class="hour">11</div>
-              <div class="hour">12</div>
-              <div class="hour">13</div>
-              <div class="hour">14</div>
-              <div class="hour">15</div>
-              <div class="hour">16</div>
-              <div class="hour">17</div>
-              <div class="hour">18</div>
-              <div class="hour">19</div>
-              <div class="hour">20</div>
-              <div class="hour">21</div>
-              <div class="hour">22</div>
-              <div class="hour">23</div>
+              <div class="hour" data-hour="0">0
+                <div class="timeline" style="left: 0; width: 20%; background-color: green;">요가</div>
+              </div>
+              <div class="hour" data-hour="1">1</div>
+              <div class="hour" data-hour="2">2</div>
+              <div class="hour" data-hour="3">3</div>
+              <div class="hour" data-hour="4">4</div>
+              <div class="hour" data-hour="5">5</div>
+              <div class="hour" data-hour="6">6</div>
+              <div class="hour" data-hour="7">7</div>
+              <div class="hour" data-hour="8">8
+                <div class="timeline" style="left: 30%; width: 20%; background-color: blue;">낮잠</div>
+              </div>
+              <div class="hour" data-hour="9">9</div>
+              <div class="hour" data-hour="10">10</div>
+              <div class="hour" data-hour="11">11</div>
+              <div class="hour" data-hour="12">12</div>
+              <div class="hour" data-hour="13">13</div>
+              <div class="hour" data-hour="14">14</div>
+              <div class="hour" data-hour="15">15</div>
+              <div class="hour" data-hour="16">16</div>
+              <div class="hour" data-hour="17">17</div>
+              <div class="hour" data-hour="18">18
+                <div class="timeline" style="left: 30%; width: 20%; background-color: pink;">긍살</div>
+              </div>
+              <div class="hour" data-hour="19">19</div>
+              <div class="hour" data-hour="20">20</div>
+              <div class="hour" data-hour="21">21</div>
+              <div class="hour" data-hour="22">22</div>
+              <div class="hour" data-hour="23">23</div>
             </div>
           </div>
       </div>

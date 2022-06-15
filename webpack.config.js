@@ -40,6 +40,6 @@ module.exports = {
       title: 'My Timetable',
       template: 'src/index.html'
     }),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin()
   ],
 };
