@@ -13,7 +13,6 @@
   height: 100%;
   background-color: orange;
   display: flex;
-  text-align: start;
 }
 .hours.hour-header {
   width: 15%;
@@ -24,6 +23,7 @@
 .hours.hour-header .hour {
   border: solid 1px black;
   flex-grow: 1;
+  height: 100%;
 }
 .contents {
   position: relative;
@@ -52,5 +52,12 @@
 }
 .contents .hours .hour {
   flex-grow: 1;
-  border-bottom: #dadce0 1px solid 
+  border-bottom: #dadce0 1px solid;
+  position: relative;
+}
+
+.contents .hours .hour .timeline {
+  position: absolute;
+  height: 100%;
+  top: 0;
 }

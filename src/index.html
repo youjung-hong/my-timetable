@@ -10,7 +10,19 @@
     <div id="root"></div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            new MyTimetable(document.getElementById('root'))
+            new MyTimetable(document.getElementById('root'), [{
+                id: 1,
+                color: 'plum',
+                startAt: '2022-01-02T07:15:00',
+                endAt: '2022-01-02T07:20:00',
+            }, {
+                id: 2,
+                color: 'green',
+                startAt: '2022-06-20T18:30:00',
+                endAt: '2022-06-20T21:15:00'
+            }], {
+                startHour: 5
+            })
         })
     </script>
 </body>

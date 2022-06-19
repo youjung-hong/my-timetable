@@ -1,7 +1,7 @@
 export interface ITimeline {
     id: number
     color: string
-    startAt: Date
-    endAt: Date
+    startAt: string
+    endAt: string
     meta?: any
 }
