@@ -3,11 +3,11 @@
 export interface ITimeline {
 	id: number;
 	color: string;
-	startAt: Date;
-	endAt: Date;
+	startAt: string;
+	endAt: string;
 	meta?: any;
 }
-declare class Timeline implements ITimeline {
+declare class Timeline {
 	id: number;
 	color: string;
 	startAt: Date;
@@ -19,8 +19,16 @@ declare class Timetable {
 	rootElement: HTMLElement;
 	hourElements: HTMLElement[];
 	timelines: Timeline[];
-	constructor(rootElement: HTMLElement, timelines?: ITimeline[]);
-	init(): void;
+	options: {
+		startHour: number;
+	};
+	constructor(rootElement: HTMLElement, timelines: ITimeline[] | undefined, options: {
+		startHour: number;
+	});
+	private init;
+	private draw;
+	addTimeline(_timeline: ITimeline): void;
+	removeTimeline(id: number): void;
 }
 
 export {
