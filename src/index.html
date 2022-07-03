@@ -24,22 +24,28 @@
                 startHour: 5
             });
 
-            timetable.addTimeline({
+            setTimeout(() => {
+                timetable.addTimeline({
                 id: 3,
                 color: 'blue',
                 startAt: '2022-06-20T10:30:00',
                 endAt: '2022-06-20T11:15:00'
             });
+            }, 1500);
 
-            timetable.addTimeline({
-                id: 2,
-                color: 'green',
-                startAt: '2022-06-20T08:30:00',
-                endAt: '2022-06-20T09:00:00'
-            });
+            setTimeout(() => {
+                timetable.addTimeline({
+                    id: 2,
+                    color: 'green',
+                    startAt: '2022-06-20T08:30:00',
+                    endAt: '2022-06-20T09:00:00'
+                });
+            }, 3000);
 
-            timetable.removeTimeline(3);
-            timetable.removeTimeline(5);
+            setTimeout(() => {
+                timetable.removeTimeline(3);
+                timetable.removeTimeline(5);
+            }, 4500);
         })
     </script>
 </body>

@@ -3,20 +3,20 @@ import { TIMETABLE_INNERHTML, TIMELINE_INNERHTML } from './templates';
 import { Timeline } from './Timeline';
 
 export class Timetable {
-    rootElement: HTMLElement
-    hourElements: HTMLElement[]
-    timelines: Timeline[]
-    options: {
+    private rootElement: HTMLElement
+    private hourElements: HTMLElement[]
+    private timelines: Timeline[]
+    private options: {
         startHour: number
     }
 
-    constructor(rootElement: HTMLElement, timelines: ITimeline[] = [], options: {
+    constructor(rootElement: HTMLElement, timelines?: ITimeline[], options?: {
         startHour: number
     }) {
         this.rootElement = rootElement;
         this.hourElements = [];
-        this.timelines = timelines.map(item => new Timeline(item));
-        this.options = options;
+        this.timelines = (timelines || []).map(item => new Timeline(item));
+        this.options = options || { startHour: 0 };
         this.init();
     }
 
@@ -40,13 +40,17 @@ export class Timetable {
                 break;
             }
 
-            const left = ((startAtMinutes / 60) * 100);
-            const width = ((endAtMinutes - startAtMinutes)) / 60 * 100;
+            const left = startAtMinutes / 60 * 100;
+            const width = (endAtMinutes - startAtMinutes) / 60 * 100;
 
             const timelineElement = document.createElement('div');
             timelineElement.innerHTML = TIMELINE_INNERHTML(timeline, left + '%', width + '%');
-            this.hourElements[i - this.options.startHour].append(timelineElement);
+            this.hourElements[i - this.options.startHour]?.append(timelineElement);
         }
+    }
+
+    getTimelines() {
+        return this.timelines;
     }
 
     addTimeline(_timeline: ITimeline) {
