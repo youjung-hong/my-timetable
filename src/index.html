@@ -10,7 +10,42 @@
     <div id="root"></div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            new MyTimetable(document.getElementById('root'))
+            const timetable = new MyTimetable(document.getElementById('root'), [{
+                id: 1,
+                color: 'plum',
+                startAt: '2022-01-02T07:15:00',
+                endAt: '2022-01-02T07:20:00',
+            }, {
+                id: 2,
+                color: 'green',
+                startAt: '2022-06-20T18:30:00',
+                endAt: '2022-06-20T21:15:00'
+            }], {
+                startHour: 5
+            });
+
+            setTimeout(() => {
+                timetable.addTimeline({
+                id: 3,
+                color: 'blue',
+                startAt: '2022-06-20T10:30:00',
+                endAt: '2022-06-20T11:15:00'
+            });
+            }, 1500);
+
+            setTimeout(() => {
+                timetable.addTimeline({
+                    id: 2,
+                    color: 'green',
+                    startAt: '2022-06-20T08:30:00',
+                    endAt: '2022-06-20T09:00:00'
+                });
+            }, 3000);
+
+            setTimeout(() => {
+                timetable.removeTimeline(3);
+                timetable.removeTimeline(5);
+            }, 4500);
         })
     </script>
 </body>

@@ -1,6 +1,6 @@
 import { ITimeline } from "./ITimeline"
 
-export class Timeline implements ITimeline {
+export class Timeline {
     
     id: number
     color: string
@@ -11,8 +11,8 @@ export class Timeline implements ITimeline {
     constructor(data: ITimeline) {
         this.id = data.id;
         this.color = data.color;
-        this.startAt = data.startAt;
-        this.endAt = data.endAt;
+        this.startAt = new Date(data.startAt);
+        this.endAt = new Date(data.endAt);
         this.meta = data.meta;
     }
 }
