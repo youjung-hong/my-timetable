@@ -16,6 +16,7 @@ test('initialization OK: new Timetable(rootElement)', () => {
     const timetable = new Timetable(rootElement);
     expect(timetable).toBeInstanceOf(Timetable);
     expect(timetable.getTimelines()).toEqual([]);
+    expect(rootElement.outerHTML).toMatchSnapshot();
 })
 
 test('initialization Error: new Timetable(null)', () => {
@@ -30,6 +31,7 @@ test('initialization OK: new Timetable(rootElement, timelines)', () => {
     const timetable1 = new Timetable(rootElement, []);
     expect(timetable1).toBeInstanceOf(Timetable);
     expect(timetable1.getTimelines()).toEqual([]);
+    expect(rootElement.outerHTML).toMatchSnapshot();
 
     const timetable2 = new Timetable(rootElement, [{
         id: 1,
@@ -44,6 +46,7 @@ test('initialization OK: new Timetable(rootElement, timelines)', () => {
     expect(timetable2.getTimelines()[0].startAt).toEqual(new Date('2022-06-23T07:30:00'));
     expect(timetable2.getTimelines()[0].endAt).toEqual(new Date('2022-06-23T09:00:00'));
     expect(timetable2.getTimelines()[0].meta).toBeUndefined();
+    expect(rootElement.outerHTML).toMatchSnapshot();
 });
 
 test('initialization OK: new Timetable(rootElement, timelines, options)', () => {
@@ -53,6 +56,7 @@ test('initialization OK: new Timetable(rootElement, timelines, options)', () => 
     });
     expect(timetable).toBeInstanceOf(Timetable);
     expect(timetable.getTimelines()).toEqual([]);
+    expect(rootElement.outerHTML).toMatchSnapshot();
 })
 
 // addTimeline: 추가한다 // 수정한다
@@ -74,6 +78,7 @@ test('addTimeline: create a new timeline', () => {
     expect(timetable.getTimelines()[0].startAt).toEqual(new Date('2022-06-20T10:30:00'));
     expect(timetable.getTimelines()[0].endAt).toEqual(new Date('2022-06-20T11:15:00'));
     expect(timetable.getTimelines()[0].meta).toBeUndefined();
+    expect(rootElement.outerHTML).toMatchSnapshot();
 });
 
 test('addTimeline: modify a existing timeline', () => {
@@ -98,6 +103,7 @@ test('addTimeline: modify a existing timeline', () => {
     expect(timetable.getTimelines()[0].startAt).toEqual(new Date('2022-06-23T11:00:00'));
     expect(timetable.getTimelines()[0].endAt).toEqual(new Date('2022-06-23T12:15:00'));
     expect(timetable.getTimelines()[0].meta).toBeUndefined();
+    expect(rootElement.outerHTML).toMatchSnapshot();
 })
 
 // removeTimeline: 지운다 
@@ -115,6 +121,7 @@ test('removeTimeline: remove a existing timeline', () => {
     timetable.removeTimeline(1);
 
     expect(timetable.getTimelines().length).toEqual(0);
+    expect(rootElement.outerHTML).toMatchSnapshot();
 })
 
 test('removeTimeline: cannot remove a existing timeline', () => {
@@ -129,4 +136,5 @@ test('removeTimeline: cannot remove a existing timeline', () => {
     timetable.removeTimeline(2);
 
     expect(timetable.getTimelines().length).toEqual(1);
+    expect(rootElement.outerHTML).toMatchSnapshot();
 })
