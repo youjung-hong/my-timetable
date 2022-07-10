@@ -16,17 +16,16 @@ declare class Timeline {
 	constructor(data: ITimeline);
 }
 declare class Timetable {
-	rootElement: HTMLElement;
-	hourElements: HTMLElement[];
-	timelines: Timeline[];
-	options: {
-		startHour: number;
-	};
-	constructor(rootElement: HTMLElement, timelines: ITimeline[] | undefined, options: {
+	private rootElement;
+	private hourElements;
+	private timelines;
+	private options;
+	constructor(rootElement: HTMLElement, timelines?: ITimeline[], options?: {
 		startHour: number;
 	});
 	private init;
 	private draw;
+	getTimelines(): Timeline[];
 	addTimeline(_timeline: ITimeline): void;
 	removeTimeline(id: number): void;
 }
