@@ -1,3 +1,4 @@
+import { IOptions } from './IOptions';
 import { ITimeline } from './ITimeline';
 import { TIMETABLE_INNERHTML, TIMELINE_INNERHTML } from './templates';
 import { Timeline } from './Timeline';
@@ -10,13 +11,13 @@ export class Timetable {
         startHour: number
     }
 
-    constructor(rootElement: HTMLElement, timelines?: ITimeline[], options?: {
-        startHour: number
-    }) {
+    constructor(rootElement: HTMLElement, timelines?: ITimeline[], options?: IOptions) {
         this.rootElement = rootElement;
         this.hourElements = [];
         this.timelines = (timelines || []).map(item => new Timeline(item));
-        this.options = options || { startHour: 0 };
+        this.options = { 
+            startHour: (options || {}).startHour || 0
+        }
         this.init();
     }
 

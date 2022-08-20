@@ -12,14 +12,14 @@
         document.addEventListener('DOMContentLoaded', () => {
             const timetable = new MyTimetable(document.getElementById('root'), [{
                 id: 1,
-                color: '#61B087',
+                color: '#51FF0D',
                 startAt: '2022-01-02T07:15:00',
                 endAt: '2022-01-02T07:20:00',
             }, {
                 id: 2,
-                color: '#ffc038',
-                startAt: '2022-06-20T18:30:00',
-                endAt: '2022-06-20T21:15:00'
+                color: '#FF0DCA',
+                startAt: '2022-06-20T18:10:00',
+                endAt: '2022-06-20T18:55:00'
             }], {
                 startHour: 5
             });
@@ -27,16 +27,16 @@
             setTimeout(() => {
                 timetable.addTimeline({
                 id: 3,
-                color: '#ff834c',
-                startAt: '2022-06-20T10:30:00',
-                endAt: '2022-06-20T11:15:00'
+                color: '#FFBB0D',
+                startAt: '2022-06-20T10:00:00',
+                endAt: '2022-06-20T10:20:00'
             });
             }, 1500);
 
             setTimeout(() => {
                 timetable.addTimeline({
                     id: 2,
-                    color: '#ffc038',
+                    color: '#FF0DCA',
                     startAt: '2022-06-20T08:30:00',
                     endAt: '2022-06-20T09:00:00'
                 });
