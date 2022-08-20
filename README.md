@@ -1,5 +1,7 @@
 # my-timetable
 
+![my-timetable](https://user-images.githubusercontent.com/13758710/185757027-fe428245-2ff2-438c-bf3a-96ed709ad78d.png)
+
 ## Get Started
 
 ### Install
