@@ -44,4 +44,4 @@ timetable.addTimeline({
 
 ## Links
 
-- [HTML demo page](https://youjung-hong.github.io/my-timetable/)
+- [Storybook](https://youjung-hong.github.io/my-timetable/)
