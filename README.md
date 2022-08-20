@@ -37,7 +37,7 @@ timetable.addTimeline({
     endAt: '2022-06-20T09:00:00'
 });
 ```
-### Delete timelate
+### Delete timeline
 ```js
  timetable.removeTimeline(1);
 ```
