@@ -19,29 +19,27 @@ const timetable = new MyTimetable(document.getElementById('root'), [{
 }]);
 ```
 
-### Create timeline
+### Get timelines
 ```js
-timetable.addTimeline({
+timetable.getTimelines();
+timetable.getTimeline(1); // find by id
+```
+
+### Create/Update timelines
+```js
+timetable.addTimelines([{
     id: 2,
     color: '#FF0DCA',
     startAt: '2022-06-20T18:10:00',
     endAt: '2022-06-20T18:55:00'
-});
+}]);
 ```
-### Update timeline
+
+### Delete timelates
 ```js
-timetable.addTimeline({
-    id: 2,
-    color: '#FF0DCA',
-    startAt: '2022-06-20T08:30:00',
-    endAt: '2022-06-20T09:00:00'
-});
-```
-### Delete timelate
-```js
- timetable.removeTimeline(1);
+ timetable.removeTimelines([1]);
 ```
 
 ## Links
 
-- [HTML demo page](https://youjung-hong.github.io/my-timetable/)
+- [Storybook](https://youjung-hong.github.io/my-timetable/)
