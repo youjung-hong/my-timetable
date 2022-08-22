@@ -54,6 +54,14 @@ export class Timetable {
         return this.timelines;
     }
 
+    getTimeline(id: number) {
+        return this.timelines.find(item => item.id === id);
+    }
+
+    addTimelines(_timelines: ITimeline[]) {
+        _timelines.forEach(timeline => this.addTimeline(timeline));
+    }
+
     addTimeline(_timeline: ITimeline) {
         this.removeTimeline(_timeline.id);
 
@@ -64,8 +72,12 @@ export class Timetable {
         this.draw(timeline);
     }
 
+    removeTimelines(ids: number[]) {
+        ids.forEach(id => this.removeTimeline(id));
+    }
+
     removeTimeline(id: number) {
-        let idx = this.timelines.findIndex(item => item.id === id);
+        const idx = this.timelines.findIndex(item => item.id === id);
         if (idx === -1) {
             return;
         }
