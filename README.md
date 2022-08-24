@@ -33,9 +33,8 @@ timetable.addTimelines([{
     startAt: '2022-06-20T18:10:00',
     endAt: '2022-06-20T18:55:00'
 }]);
-```
-
-### Delete timelates
+``` 
+### Delete timelines
 ```js
  timetable.removeTimelines([1]);
 ```
