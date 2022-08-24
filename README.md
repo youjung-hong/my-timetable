@@ -1,6 +1,6 @@
 # my-timetable
 
-![my-timetable](https://user-images.githubusercontent.com/13758710/185757230-6dc7a058-eda5-46a6-8825-14d939abd466.png)
+![my-timetable](https://user-images.githubusercontent.com/13758710/186532935-d792a92e-1fd9-42c3-b2b5-7e8d4bc45a1c.png)
 
 ## Get Started
 
@@ -19,27 +19,24 @@ const timetable = new MyTimetable(document.getElementById('root'), [{
 }]);
 ```
 
-### Create timeline
+### Get timelines
 ```js
-timetable.addTimeline({
+timetable.getTimelines();
+timetable.getTimeline(1); // find by id
+```
+
+### Create/Update timelines
+```js
+timetable.addTimelines([{
     id: 2,
     color: '#FF0DCA',
     startAt: '2022-06-20T18:10:00',
     endAt: '2022-06-20T18:55:00'
-});
-```
-### Update timeline
+}]);
+``` 
+### Delete timelines
 ```js
-timetable.addTimeline({
-    id: 2,
-    color: '#FF0DCA',
-    startAt: '2022-06-20T08:30:00',
-    endAt: '2022-06-20T09:00:00'
-});
-```
-### Delete timeline
-```js
- timetable.removeTimeline(1);
+ timetable.removeTimelines([1]);
 ```
 
 ## Links

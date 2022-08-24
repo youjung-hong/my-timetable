@@ -62,15 +62,15 @@ test('initialization OK: new Timetable(rootElement, timelines, options)', () => 
 // addTimeline: 추가한다 // 수정한다
 // - 값이 없는 것을 추가하면 새로 생긴다.화면에도 추가된다.
 // - 값이 있는 것을 추가하면 수정한다.화면에도 수정된다 
-test('addTimeline: create a new timeline', () => {
+test('addTimelines: create new timelines', () => {
     const rootElement = document.getElementById('root') as HTMLDivElement;
     const timetable = new Timetable(rootElement);
-    timetable.addTimeline({
+    timetable.addTimelines([{
         id: 3,
         color: 'blue',
         startAt: '2022-06-20T10:30:00',
         endAt: '2022-06-20T11:15:00'
-    });
+    }]);
 
     expect(timetable.getTimelines().length).toEqual(1);
     expect(timetable.getTimelines()[0].id).toEqual(3);
@@ -81,7 +81,7 @@ test('addTimeline: create a new timeline', () => {
     expect(rootElement.outerHTML).toMatchSnapshot();
 });
 
-test('addTimeline: modify a existing timeline', () => {
+test('addTimelines: modify existing timelines', () => {
     const rootElement = document.getElementById('root') as HTMLDivElement;
     const timetable = new Timetable(rootElement, [{
         id: 1,
@@ -90,12 +90,12 @@ test('addTimeline: modify a existing timeline', () => {
         endAt: '2022-06-23T09:00:00',
     }]);
 
-    timetable.addTimeline({
+    timetable.addTimelines([{
         id: 1,
         color: 'blue',
         startAt: '2022-06-23T11:00:00',
         endAt: '2022-06-23T12:15:00'
-    });
+    }]);
 
     expect(timetable.getTimelines().length).toEqual(1);
     expect(timetable.getTimelines()[0].id).toEqual(1);
@@ -109,7 +109,7 @@ test('addTimeline: modify a existing timeline', () => {
 // removeTimeline: 지운다 
 // - id가 있는 애들을 넣는다, 삭제된다. 화면에서도 지워진다. 
 // - id가 안 맞는 애들을 넣으면, 아무것도 변하지 않는다. 
-test('removeTimeline: remove a existing timeline', () => {
+test('removeTimelines: remove existing timelines', () => {
     const rootElement = document.getElementById('root') as HTMLDivElement;
     const timetable = new Timetable(rootElement, [{
         id: 1,
@@ -118,13 +118,13 @@ test('removeTimeline: remove a existing timeline', () => {
         endAt: '2022-06-23T09:00:00',
     }]);
 
-    timetable.removeTimeline(1);
+    timetable.removeTimelines([1]);
 
     expect(timetable.getTimelines().length).toEqual(0);
     expect(rootElement.outerHTML).toMatchSnapshot();
 })
 
-test('removeTimeline: cannot remove a existing timeline', () => {
+test('removeTimelines: cannot remove timelines which is not exist inside timetable', () => {
     const rootElement = document.getElementById('root') as HTMLDivElement;
     const timetable = new Timetable(rootElement, [{
         id: 1,
@@ -133,7 +133,7 @@ test('removeTimeline: cannot remove a existing timeline', () => {
         endAt: '2022-06-23T09:00:00',
     }]);
 
-    timetable.removeTimeline(2);
+    timetable.removeTimelines([2]);
 
     expect(timetable.getTimelines().length).toEqual(1);
     expect(rootElement.outerHTML).toMatchSnapshot();
