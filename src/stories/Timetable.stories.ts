@@ -1,8 +1,8 @@
-import { Story, Meta } from '@storybook/html';
-import { IOptions } from '../IOptions';
+import { Story } from '@storybook/html';
 import { ITimeline } from '../ITimeline';
 import { Timetable } from '../Timetable';
 import '../index.css'
+import { sleep } from './utils';
 
 const now = new Date();
 const after45min = new Date(now.getTime() + 2700000); // 2700000 = 45 * 60000
@@ -112,6 +112,7 @@ type TemplateArgs = {
   startHour: number
 };
 
+let timetable: Timetable;
 // More on component templates: https://storybook.js.org/docs/html/writing-stories/introduction#using-args
 const Template: Story<TemplateArgs> = (args): HTMLElement => {
   // You can either use a function to create DOM elements or use a plain html string!
@@ -131,7 +132,7 @@ const Template: Story<TemplateArgs> = (args): HTMLElement => {
     timelines[0].color = color;
   }
 
-  new Timetable(rootElement, timelines, {
+  timetable = new Timetable(rootElement, timelines, {
     startHour: startHour
   });
 
@@ -139,6 +140,29 @@ const Template: Story<TemplateArgs> = (args): HTMLElement => {
 };
 
 export const Timelines = Template.bind({});
+Timelines.play = async () => {
+  await sleep(2000);
+
+  timetable.addTimelines([{
+    id: 2,
+    color: '#FF0DCA',
+    startAt: '2022-08-20T12:10:00',
+    endAt: '2022-08-20T12:45:00'
+  }]);
+
+  await sleep(2000);
+
+  timetable.addTimelines([{
+    id: 4,
+    color: '#0AC2FF',
+    startAt: '2022-08-20T12:50:00',
+    endAt: '2022-08-20T13:05:00'
+  }]);
+
+  await sleep(2000);
+
+  timetable.removeTimelines([2]);
+}
 
 export const Empty = Template.bind({});
 Empty.args = {
