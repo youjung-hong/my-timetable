@@ -36,7 +36,7 @@ export default {
         endAt: '2022-08-20T12:20:00'
       }, {
         id: 3,
-        color: '#FFBB0D',
+        color: '#F2FF00',
         startAt: '2022-08-20T15:15:00',
         endAt: '2022-08-20T16:00:00'
       }],
@@ -141,7 +141,7 @@ const Template: Story<TemplateArgs> = (args): HTMLElement => {
 
 export const Timelines = Template.bind({});
 Timelines.play = async () => {
-  await sleep(2000);
+  await sleep(10000);
 
   timetable.addTimelines([{
     id: 2,

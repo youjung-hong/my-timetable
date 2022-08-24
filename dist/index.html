@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Timetable</title>
-
-<script defer src="main.js"></script></head>
-<body style="font-family: sans-serif;">
-    <div id="root"></div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My Timetable</title><script defer="defer" src="main.js"></script></head><body style="font-family: sans-serif;"><div id="root"></div><script>document.addEventListener('DOMContentLoaded', () => {
             const timetable = new MyTimetable(document.getElementById('root'), [{
                 id: 1,
                 color: '#51FF0D',
@@ -27,7 +16,7 @@
             setTimeout(() => {
                 timetable.addTimeline({
                 id: 3,
-                color: '#FFBB0D',
+                color: '#F2FF00',
                 startAt: '2022-06-20T10:00:00',
                 endAt: '2022-06-20T10:20:00'
             });
@@ -46,7 +35,4 @@
                 timetable.removeTimeline(3);
                 timetable.removeTimeline(5);
             }, 4500);
-        })
-    </script>
-</body>
-</html>
+        })</script></body></html>
