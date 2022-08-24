@@ -1,6 +1,6 @@
 # my-timetable
 
-![my-timetable](https://user-images.githubusercontent.com/13758710/185757230-6dc7a058-eda5-46a6-8825-14d939abd466.png)
+![my-timetable](https://user-images.githubusercontent.com/13758710/186532935-d792a92e-1fd9-42c3-b2b5-7e8d4bc45a1c.png)
 
 ## Get Started
 
