@@ -1,6 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path')
 
 module.exports = {
   entry: './src/index.ts',
@@ -15,7 +15,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
-      }
+      },
     ],
   },
   resolve: {
@@ -27,19 +27,19 @@ module.exports = {
     library: 'MyTimetable',
     libraryTarget: 'umd',
     libraryExport: 'default',
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
-    compress: true
+    compress: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'My Timetable',
-      template: 'src/index.html'
+      template: 'src/index.html',
     }),
     // new CleanWebpackPlugin()
   ],
-};
+}

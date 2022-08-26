@@ -22,8 +22,8 @@ test('initialization OK: new Timetable(rootElement)', () => {
 test('initialization Error: new Timetable(null)', () => {
   expect(() => {
     const rootElement = document.getElementById('root1') as HTMLDivElement
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const timetable = new Timetable(rootElement)
+    // eslint-disable-next-line no-new
+    new Timetable(rootElement)
   }).toThrowError()
 })
 
@@ -34,18 +34,24 @@ test('initialization OK: new Timetable(rootElement, timelines)', () => {
   expect(timetable1.getTimelines()).toEqual([])
   expect(rootElement.outerHTML).toMatchSnapshot()
 
-  const timetable2 = new Timetable(rootElement, [{
-    id: 1,
-    color: 'yellow',
-    startAt: '2022-06-23T07:30:00',
-    endAt: '2022-06-23T09:00:00',
-  }])
+  const timetable2 = new Timetable(rootElement, [
+    {
+      id: 1,
+      color: 'yellow',
+      startAt: '2022-06-23T07:30:00',
+      endAt: '2022-06-23T09:00:00',
+    },
+  ])
   expect(timetable2).toBeInstanceOf(Timetable)
   expect(timetable2.getTimelines().length).toEqual(1)
   expect(timetable2.getTimelines()[0].id).toEqual(1)
   expect(timetable2.getTimelines()[0].color).toEqual('yellow')
-  expect(timetable2.getTimelines()[0].startAt).toEqual(new Date('2022-06-23T07:30:00'))
-  expect(timetable2.getTimelines()[0].endAt).toEqual(new Date('2022-06-23T09:00:00'))
+  expect(timetable2.getTimelines()[0].startAt).toEqual(
+    new Date('2022-06-23T07:30:00'),
+  )
+  expect(timetable2.getTimelines()[0].endAt).toEqual(
+    new Date('2022-06-23T09:00:00'),
+  )
   expect(timetable2.getTimelines()[0].meta).toBeUndefined()
   expect(rootElement.outerHTML).toMatchSnapshot()
 })
@@ -66,43 +72,57 @@ test('initialization OK: new Timetable(rootElement, timelines, options)', () => 
 test('addTimelines: create new timelines', () => {
   const rootElement = document.getElementById('root') as HTMLDivElement
   const timetable = new Timetable(rootElement)
-  timetable.addTimelines([{
-    id: 3,
-    color: 'blue',
-    startAt: '2022-06-20T10:30:00',
-    endAt: '2022-06-20T11:15:00',
-  }])
+  timetable.addTimelines([
+    {
+      id: 3,
+      color: 'blue',
+      startAt: '2022-06-20T10:30:00',
+      endAt: '2022-06-20T11:15:00',
+    },
+  ])
 
   expect(timetable.getTimelines().length).toEqual(1)
   expect(timetable.getTimelines()[0].id).toEqual(3)
   expect(timetable.getTimelines()[0].color).toEqual('blue')
-  expect(timetable.getTimelines()[0].startAt).toEqual(new Date('2022-06-20T10:30:00'))
-  expect(timetable.getTimelines()[0].endAt).toEqual(new Date('2022-06-20T11:15:00'))
+  expect(timetable.getTimelines()[0].startAt).toEqual(
+    new Date('2022-06-20T10:30:00'),
+  )
+  expect(timetable.getTimelines()[0].endAt).toEqual(
+    new Date('2022-06-20T11:15:00'),
+  )
   expect(timetable.getTimelines()[0].meta).toBeUndefined()
   expect(rootElement.outerHTML).toMatchSnapshot()
 })
 
 test('addTimelines: modify existing timelines', () => {
   const rootElement = document.getElementById('root') as HTMLDivElement
-  const timetable = new Timetable(rootElement, [{
-    id: 1,
-    color: 'yellow',
-    startAt: '2022-06-23T07:30:00',
-    endAt: '2022-06-23T09:00:00',
-  }])
+  const timetable = new Timetable(rootElement, [
+    {
+      id: 1,
+      color: 'yellow',
+      startAt: '2022-06-23T07:30:00',
+      endAt: '2022-06-23T09:00:00',
+    },
+  ])
 
-  timetable.addTimelines([{
-    id: 1,
-    color: 'blue',
-    startAt: '2022-06-23T11:00:00',
-    endAt: '2022-06-23T12:15:00',
-  }])
+  timetable.addTimelines([
+    {
+      id: 1,
+      color: 'blue',
+      startAt: '2022-06-23T11:00:00',
+      endAt: '2022-06-23T12:15:00',
+    },
+  ])
 
   expect(timetable.getTimelines().length).toEqual(1)
   expect(timetable.getTimelines()[0].id).toEqual(1)
   expect(timetable.getTimelines()[0].color).toEqual('blue')
-  expect(timetable.getTimelines()[0].startAt).toEqual(new Date('2022-06-23T11:00:00'))
-  expect(timetable.getTimelines()[0].endAt).toEqual(new Date('2022-06-23T12:15:00'))
+  expect(timetable.getTimelines()[0].startAt).toEqual(
+    new Date('2022-06-23T11:00:00'),
+  )
+  expect(timetable.getTimelines()[0].endAt).toEqual(
+    new Date('2022-06-23T12:15:00'),
+  )
   expect(timetable.getTimelines()[0].meta).toBeUndefined()
   expect(rootElement.outerHTML).toMatchSnapshot()
 })
@@ -112,12 +132,14 @@ test('addTimelines: modify existing timelines', () => {
 // - id가 안 맞는 애들을 넣으면, 아무것도 변하지 않는다.
 test('removeTimelines: remove existing timelines', () => {
   const rootElement = document.getElementById('root') as HTMLDivElement
-  const timetable = new Timetable(rootElement, [{
-    id: 1,
-    color: 'yellow',
-    startAt: '2022-06-23T07:30:00',
-    endAt: '2022-06-23T09:00:00',
-  }])
+  const timetable = new Timetable(rootElement, [
+    {
+      id: 1,
+      color: 'yellow',
+      startAt: '2022-06-23T07:30:00',
+      endAt: '2022-06-23T09:00:00',
+    },
+  ])
 
   timetable.removeTimelines([1])
 
@@ -127,12 +149,14 @@ test('removeTimelines: remove existing timelines', () => {
 
 test('removeTimelines: cannot remove timelines which is not exist inside timetable', () => {
   const rootElement = document.getElementById('root') as HTMLDivElement
-  const timetable = new Timetable(rootElement, [{
-    id: 1,
-    color: 'yellow',
-    startAt: '2022-06-23T07:30:00',
-    endAt: '2022-06-23T09:00:00',
-  }])
+  const timetable = new Timetable(rootElement, [
+    {
+      id: 1,
+      color: 'yellow',
+      startAt: '2022-06-23T07:30:00',
+      endAt: '2022-06-23T09:00:00',
+    },
+  ])
 
   timetable.removeTimelines([2])
 

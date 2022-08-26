@@ -5,38 +5,48 @@
 ## Get Started
 
 ### Install
+
 ```html
 <script src="https://raw.githubusercontent.com/youjung-hong/my-timetable/main/dist/main.js"></script>
 ```
 
 ### Initialize
+
 ```js
-const timetable = new MyTimetable(document.getElementById('root'), [{
+const timetable = new MyTimetable(document.getElementById('root'), [
+  {
     id: 1,
     color: '#51FF0D',
     startAt: '2022-01-02T07:15:00',
     endAt: '2022-01-02T07:20:00',
-}]);
+  },
+])
 ```
 
 ### Get timelines
+
 ```js
-timetable.getTimelines();
-timetable.getTimeline(1); // find by id
+timetable.getTimelines()
+timetable.getTimeline(1) // find by id
 ```
 
 ### Create/Update timelines
+
 ```js
-timetable.addTimelines([{
+timetable.addTimelines([
+  {
     id: 2,
     color: '#FF0DCA',
     startAt: '2022-06-20T18:10:00',
-    endAt: '2022-06-20T18:55:00'
-}]);
-``` 
+    endAt: '2022-06-20T18:55:00',
+  },
+])
+```
+
 ### Delete timelines
+
 ```js
- timetable.removeTimelines([1]);
+timetable.removeTimelines([1])
 ```
 
 ## Links

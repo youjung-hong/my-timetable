@@ -5,8 +5,7 @@ module.exports = {
     node: true,
   },
   extends: ['standard-with-typescript', 'prettier'],
-  overrides: [
-  ],
+  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
