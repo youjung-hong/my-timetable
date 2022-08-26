@@ -26,7 +26,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-storybook-docs": "rm -rf docs && yarn run build-storybook && mv storybook-static docs",
-    "lint": "eslint"
+    "lint": "eslint --fix",
+    "prettier": "prettier --write"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -46,6 +47,7 @@
     "css-loader": "^6.7.1",
     "dts-bundle-generator": "^6.11.0",
     "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^22.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",

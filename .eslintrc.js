@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: 'standard-with-typescript',
+  extends: ['standard-with-typescript', 'prettier'],
   overrides: [
   ],
   parserOptions: {

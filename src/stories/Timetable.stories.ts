@@ -24,22 +24,26 @@ export default {
     timelines: {
       name: 'timelines[]',
       type: { name: 'array', required: false },
-      defaultValue: [{
-        id: 1,
-        color: '#51FF0D',
-        startAt: '2022-08-20T10:15:00',
-        endAt: '2022-08-20T11:30:00',
-      }, {
-        id: 2,
-        color: '#FF0DCA',
-        startAt: '2022-08-20T12:05:00',
-        endAt: '2022-08-20T12:20:00',
-      }, {
-        id: 3,
-        color: '#F2FF00',
-        startAt: '2022-08-20T15:15:00',
-        endAt: '2022-08-20T16:00:00',
-      }],
+      defaultValue: [
+        {
+          id: 1,
+          color: '#51FF0D',
+          startAt: '2022-08-20T10:15:00',
+          endAt: '2022-08-20T11:30:00',
+        },
+        {
+          id: 2,
+          color: '#FF0DCA',
+          startAt: '2022-08-20T12:05:00',
+          endAt: '2022-08-20T12:20:00',
+        },
+        {
+          id: 3,
+          color: '#F2FF00',
+          startAt: '2022-08-20T15:15:00',
+          endAt: '2022-08-20T16:00:00',
+        },
+      ],
       description: 'timeline data',
       table: {
         type: { summary: 'ITimeline[]' },
@@ -142,21 +146,25 @@ export const Timelines = Template.bind({})
 Timelines.play = async () => {
   await sleep(10000)
 
-  timetable.addTimelines([{
-    id: 2,
-    color: '#FF0DCA',
-    startAt: '2022-08-20T12:10:00',
-    endAt: '2022-08-20T12:45:00',
-  }])
+  timetable.addTimelines([
+    {
+      id: 2,
+      color: '#FF0DCA',
+      startAt: '2022-08-20T12:10:00',
+      endAt: '2022-08-20T12:45:00',
+    },
+  ])
 
   await sleep(2000)
 
-  timetable.addTimelines([{
-    id: 4,
-    color: '#0AC2FF',
-    startAt: '2022-08-20T12:50:00',
-    endAt: '2022-08-20T13:05:00',
-  }])
+  timetable.addTimelines([
+    {
+      id: 4,
+      color: '#0AC2FF',
+      startAt: '2022-08-20T12:50:00',
+      endAt: '2022-08-20T13:05:00',
+    },
+  ])
 
   await sleep(2000)
 

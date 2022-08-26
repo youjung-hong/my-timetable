@@ -7,7 +7,7 @@ export class Timeline {
   endAt: Date
   meta?: any
 
-  constructor (data: ITimeline) {
+  constructor(data: ITimeline) {
     this.id = data.id
     this.color = data.color
     this.startAt = new Date(data.startAt)
