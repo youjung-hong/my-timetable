@@ -1,7 +1,7 @@
 {
   "name": "my-timetable",
   "version": "0.0.4",
-  "private": true,
+  "homepage": "youjung-hong.github.io/my-timetable/",
   "license": "MIT",
   "main": "./dist/main.js",
   "types": "./types/index.d.ts",
@@ -23,6 +23,7 @@
     "storybook": "start-storybook -p 6006",
     "release:types": "dts-bundle-generator --umd-module-name MyTimetable ./src/index.ts -o ./types/index.d.ts",
     "release:docs": "rm -rf docs && npx build-storybook && mv storybook-static docs",
+    "release": "yarn release:types && yarn release:docs && yarn build",
     "lint": "eslint --fix",
     "prettier": "prettier --write ."
   },
