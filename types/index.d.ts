@@ -21,8 +21,8 @@ declare class Timeline {
 declare class Timetable {
   private rootElement
   private hourElements
-  private timelines
-  private options
+  private readonly timelines
+  private readonly options
   constructor(
     rootElement: HTMLElement,
     timelines?: ITimeline[],
@@ -31,7 +31,10 @@ declare class Timetable {
   private init
   private draw
   getTimelines(): Timeline[]
+  getTimeline(id: number): Timeline | undefined
+  addTimelines(_timelines: ITimeline[]): void
   addTimeline(_timeline: ITimeline): void
+  removeTimelines(ids: number[]): void
   removeTimeline(id: number): void
 }
 
