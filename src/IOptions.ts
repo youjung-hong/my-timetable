@@ -1,3 +1,3 @@
 export interface IOptions {
-    startHour?: number
+  startHour?: number
 }
