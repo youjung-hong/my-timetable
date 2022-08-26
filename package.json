@@ -19,16 +19,12 @@
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "webpack --mode=development",
-    "types": "dts-bundle-generator --umd-module-name MyTimetable ./src/index.ts -o ./types/index.d.ts",
-    "transfile": "npx tsc ./src/**/*.ts$",
-    "serve": "webpack-dev-server --mode=development",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build-storybook-docs": "rm -rf docs && yarn run build-storybook && mv storybook-static docs",
+    "release:types": "dts-bundle-generator --umd-module-name MyTimetable ./src/index.ts -o ./types/index.d.ts",
+    "release:docs": "rm -rf docs && npx build-storybook && mv storybook-static docs",
     "lint": "eslint --fix",
-    "prettier": "prettier --write .",
-    "prepare": "husky install"
+    "prettier": "prettier --write ."
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
